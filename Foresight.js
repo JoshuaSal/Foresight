@@ -40,6 +40,7 @@ function Assessment_set(x) {
         inputScore.id = `assessmentScore_${i}`;
         inputScore.name = `assessmentScore_${i}`;
         scoreCell.appendChild(inputScore);
+    
         row.appendChild(scoreCell);
 
         // Total Input Cell
@@ -86,4 +87,9 @@ function collect_Assessment(x){
     FinalGrade.innerText ="Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
     const final = document.getElementById("finalgrade");
     final.appendChild(FinalGrade);
+
+    const Gradelost = document.createElement("h3")
+    Gradelost.innerText = "Lost grade: " + ((Math.round((100-Finaltotal) * 100) / 100).toFixed(2)) + "%";
+    const lost = document.getElementById("lostgrade");
+    lost.appendChild(Gradelost);
 }
