@@ -60,6 +60,7 @@ function Assessment_set(x) {
 
     const submitbutton = document.createElement("BUTTON")
     submitbutton.onclick = function() {collect_Assessment(x)};
+    submitbutton.id = "collectbutton"
     submitbutton.innerText  = 'Collect Assessment';
     const collectbutton = document.getElementById("collectbutton");
     collectbutton.appendChild(submitbutton);

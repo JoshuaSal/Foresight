@@ -1,3 +1,25 @@
 body{
-    color:lightsalmon;
+    background-color:#d6d0b8;
+}
+header{
+    background-color: #aaa6a4;
+    color:#f1f4c6;
+    font-size: 45px;
+}
+
+#opening{
+    font-size: 32px;
+    color:#837d7d;
+    background-color: #f1f4c6;
+}
+
+#Assessment_input{
+    background-color: #aaa6a4;
+}
+
+#collectbutton, #submitbutton{
+    padding:10px;
+    background-color: #f1f4c6;
+    border-color: #837d7d;
+
 }
