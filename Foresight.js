@@ -4,13 +4,6 @@ function Assessment_declare() {
     Assessment_set(Assessment_no)
 }
 
-class Assessment {
-    constructor(mark, total, weight) {
-        this.mark = mark;
-        this.total = total;
-        this.weight = weight;
-    }
-}
 
 function Assessment_set(x) {
     const assessmentInputsDiv = document.getElementById("Assessment_input");
