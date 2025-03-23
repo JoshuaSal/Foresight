@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,21 @@
     <script src="Foresight.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
-        <h1>Welcome to Foresight!</h1>
+        <a href="index.html">
+            <img src="media/icon.png" id="logo" alt="icon">
+            <h1 style="color:#f1f4c6;">Welcome to Foresight!</h1>
+        </a>
     </header>
     <div></div>
     <label for="Assessment_no" id="opening">How many assessments do you have?</label>
     <input type="number" id="Assessment_no" name="Assessment_no">
-    <button onclick="Assessment_declare()" id="submitbutton">submit</button>
-    
+    <button onclick="Assessment_declare()" id="submitbutton">
+        <img src="media/submit.png" class="darker" id="buttonimgs" alt="submitbutton">
+    </button><br><br>
+
     <div id="Assessment_input"></div>
 
     <div id="collectbutton"></div>
@@ -24,4 +31,5 @@
     <div id="lostgrade"></div>
 
 </body>
+
 </html>

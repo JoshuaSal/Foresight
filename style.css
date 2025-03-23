@@ -2,24 +2,73 @@ body{
     background-color:#d6d0b8;
 }
 header{
+    display: flexbox;
+    background-image: url('media/banner.png');
     background-color: #aaa6a4;
-    color:#f1f4c6;
     font-size: 45px;
+    margin: 0;
+}
+a{
+    text-decoration:none;
 }
 
+th{
+    color: #d6d0b8;
+    padding:3px;
+    border-radius: 3px;
+    background-color: rgb(133, 108, 114, .6);
+    font-size: 24px;
+}
+
+tr{
+    color: #d6d0b8;
+    padding:3px;
+    border-radius: 3px;
+    background-color: rgb(133, 108, 114, .6);
+    font-size: 24px;
+}
+#logo{
+    height: 78px;
+    width:auto; 
+    float:left;
+    margin: 20px;
+}
 #opening{
     font-size: 32px;
-    color:#837d7d;
-    background-color: #f1f4c6;
+    color: #f1f4c6;
+    padding:3px;
+    border-radius: 3px;
+    background-color: rgb(133, 108, 114, .8);
+    background-image: url('media/banner.png');
 }
 
 #Assessment_input{
-    background-color: #aaa6a4;
+    background-image: url('media/banner.png');
 }
 
-#collectbutton, #submitbutton{
-    padding:10px;
-    background-color: #f1f4c6;
-    border-color: #837d7d;
+button {
+    padding: 0;
+    border: none;
+    background: none;
+}
 
+img.darker {
+    transition: all 0.2s ease-in-out;
+  }
+  
+img.darker:hover {
+    filter: brightness(90%);
+}
+
+#buttonimgs{
+    height:78px;
+    width:auto;
+    margin-bottom: -20px;
+}
+
+#calculateimg{
+    height:148px;
+    background-image: url('media/banner.png');
+    width:auto;
+    margin-bottom: -20px;
 }

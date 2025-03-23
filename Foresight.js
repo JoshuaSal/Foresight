@@ -33,7 +33,7 @@ function Assessment_set(x) {
         inputScore.id = `assessmentScore_${i}`;
         inputScore.name = `assessmentScore_${i}`;
         scoreCell.appendChild(inputScore);
-    
+
         row.appendChild(scoreCell);
 
         // Total Input Cell
@@ -58,32 +58,41 @@ function Assessment_set(x) {
     }
     assessmentInputsDiv.appendChild(table);
 
-    const submitbutton = document.createElement("BUTTON")
-    submitbutton.onclick = function() {collect_Assessment(x)};
-    submitbutton.id = "collectbutton"
-    submitbutton.innerText  = 'Collect Assessment';
-    const collectbutton = document.getElementById("collectbutton");
-    collectbutton.appendChild(submitbutton);
 
+    const calculateimg = document.createElement("img");
+    calculateimg.src = "media/calculate.png";
+    calculateimg.className = "darker";
+    calculateimg.id = "calculateimg";
+    calculateimg.alt = "calculateimg";
+
+    const submitbutton = document.createElement("BUTTON");
+    submitbutton.onclick = function () {
+        collect_Assessment(x);
+    };
+    submitbutton.id = "collectbutton";
+    submitbutton.appendChild(calculateimg);
+    const parentElement = document.getElementById("collectbutton");
+    parentElement.appendChild(submitbutton);
+ 
 }
 
-function collect_Assessment(x){
+function collect_Assessment(x) {
 
     let Finaltotal = 0;
-    for (let i = 1; i<=x; i++){
+    for (let i = 1; i <= x; i++) {
         let score = document.getElementById(`assessmentScore_${i}`).value;
         let total = document.getElementById(`assessmentTotal_${i}`).value;
         let weight = document.getElementById(`assessmentWeight_${i}`).value;
-        
-        Finaltotal += (score/total)*weight;
+
+        Finaltotal += (score / total) * weight;
     }
     const FinalGrade = document.createElement("h2");
-    FinalGrade.innerText ="Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
+    FinalGrade.innerText = "Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
     const final = document.getElementById("finalgrade");
     final.appendChild(FinalGrade);
 
     const Gradelost = document.createElement("h3")
-    Gradelost.innerText = "Lost grade: " + ((Math.round((100-Finaltotal) * 100) / 100).toFixed(2)) + "%";
+    Gradelost.innerText = "Lost grade: " + ((Math.round((100 - Finaltotal) * 100) / 100).toFixed(2)) + "%";
     const lost = document.getElementById("lostgrade");
     lost.appendChild(Gradelost);
 }
