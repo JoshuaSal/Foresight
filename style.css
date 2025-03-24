@@ -12,12 +12,18 @@ a{
     text-decoration:none;
 }
 
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 th{
     color: #d6d0b8;
     padding:3px;
     border-radius: 3px;
     background-color: rgb(133, 108, 114, .6);
     font-size: 24px;
+
 }
 
 tr{
@@ -26,6 +32,7 @@ tr{
     border-radius: 3px;
     background-color: rgb(133, 108, 114, .6);
     font-size: 24px;
+
 }
 #logo{
     height: 78px;
@@ -71,4 +78,6 @@ img.darker:hover {
     background-image: url('media/banner.png');
     width:auto;
     margin-bottom: -20px;
+
+
 }
