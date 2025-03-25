@@ -51,6 +51,8 @@ tr{
 
 #Assessment_input{
     background-image: url('media/banner.png');
+    margin:5px;
+    padding:10px
 }
 
 button {
@@ -77,7 +79,30 @@ img.darker:hover {
     height:148px;
     background-image: url('media/banner.png');
     width:auto;
+    margin-top: 25px;
     margin-bottom: -20px;
+    margin-left: 5px;
+}
 
+#resultgrade, #gradelost{
+    text-indent: 25px;
+    background-image: url('media/results.png');
+    background-size:255px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    padding-top:62px;
+    padding-bottom: 62px;
+    padding-right:75px;
+    color:rgb(133, 108, 114);
+    text-shadow: -1px -1px 0 #f1f4c6, 1px -1px 0 #f1f4c6, -1px 1px 0 #f1f4c6, 1px 1px 0 #f1f4c6;
+}
 
+footer{
+    display:flex;
+}
+
+input{
+    font-size: 24px;
+    text-align: center;
+    background-color:#d6d0b8
 }
