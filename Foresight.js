@@ -75,8 +75,8 @@ function Assessment_set(x) {
     const submitbutton = document.createElement("BUTTON");
     submitbutton.onclick = function () {
         if (collect == 0) {
-            collect++;
             collect_Assessment(x);
+            collect++;
         }
     };
 
@@ -94,28 +94,29 @@ function collect_Assessment(x) {
         let countweight = document.getElementById(`assessmentWeight_${i}`).value;
         totalweight += parseInt(countweight);
     }
-
+    console.log(totalweight);
     if (totalweight != 100) {
-        if (window.confirm("Warning! Weight does not equate to 100%, calculation may be off") == true) {
-            let Finaltotal = 0;
-            for (let i = 1; i <= x; i++) {
-                let score = document.getElementById(`assessmentScore_${i}`).value;
-                let total = document.getElementById(`assessmentTotal_${i}`).value;
-                let weight = document.getElementById(`assessmentWeight_${i}`).value;
-                Finaltotal += (score / total) * weight;
-            }
-            const FinalGrade = document.createElement("h2");
-            FinalGrade.innerText = "Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
-            const final = document.getElementById("finalgrade");
-            FinalGrade.id = "resultgrade";
-            final.appendChild(FinalGrade);
-
-            const Gradelost = document.createElement("h3")
-            Gradelost.innerText = "Lost grade: " + ((Math.round((100 - Finaltotal) * 100) / 100).toFixed(2)) + "%";
-            const lost = document.getElementById("lostgrade");
-            lost.appendChild(Gradelost);
-            Gradelost.id = "gradelost"
-        }
+        window.confirm("Warning! Weight does not equate to 100%, calculation may be off. Proceed?");
     }
+
+    let Finaltotal = 0;
+    for (let i = 1; i <= x; i++) {
+        let score = document.getElementById(`assessmentScore_${i}`).value;
+        let total = document.getElementById(`assessmentTotal_${i}`).value;
+        let weight = document.getElementById(`assessmentWeight_${i}`).value;
+        Finaltotal += (score / total) * weight;
+    }
+    const FinalGrade = document.createElement("h2");
+    FinalGrade.innerText = "Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
+    const final = document.getElementById("finalgrade");
+    FinalGrade.id = "resultgrade";
+    final.appendChild(FinalGrade);
+
+    const Gradelost = document.createElement("h3")
+    Gradelost.innerText = "Lost grade: " + ((Math.round((100 - Finaltotal) * 100) / 100).toFixed(2)) + "%";
+    const lost = document.getElementById("lostgrade");
+    lost.appendChild(Gradelost);
+    Gradelost.id = "gradelost"
+
 
 }
