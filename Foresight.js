@@ -1,16 +1,19 @@
 var submit = 0;
+var fields = 0;
 function Assessment_declare() {
     if (submit == 0) {
         let Assessment_no = document.getElementById("Assessment_no").value;
         submit++;
-        Assessment_set(Assessment_no)
+        fields += Assessment_no;
+        Assessment_set();
     } else {
         document.getElementById("Assessment_no").disabled = true;
     }
 }
 
+
 var collect = 0;
-function Assessment_set(x) {
+function Assessment_set() {
     const assessmentInputsDiv = document.getElementById("Assessment_input");
 
     const table = document.createElement("table");
@@ -24,7 +27,7 @@ function Assessment_set(x) {
     });
     table.appendChild(headerRow);
 
-    for (let i = 1; i <= x; i++) {
+    for (let i = 1; i <= fields; i++) {
         const row = document.createElement("tr");
 
         const assessmentCell = document.createElement("td");
@@ -64,8 +67,6 @@ function Assessment_set(x) {
         table.appendChild(row);
     }
     assessmentInputsDiv.appendChild(table);
-
-
     const calculateimg = document.createElement("img");
     calculateimg.src = "media/calculate.png";
     calculateimg.className = "darker";
@@ -73,50 +74,54 @@ function Assessment_set(x) {
     calculateimg.alt = "calculateimg";
 
     const submitbutton = document.createElement("BUTTON");
-    submitbutton.onclick = function () {
-        if (collect == 0) {
-            collect_Assessment(x);
-            collect++;
-        }
-    };
 
     submitbutton.id = "collectbutton";
     submitbutton.appendChild(calculateimg);
     const parentElement = document.getElementById("collectbutton");
     parentElement.appendChild(submitbutton);
-
+    submitbutton.onclick = function () {
+        submitbuttonfxn();
+    };
 }
 
-function collect_Assessment(x) {
-
-    let totalweight = 0;
-    for (let i = 1; i <= x; i++) {
-        let countweight = document.getElementById(`assessmentWeight_${i}`).value;
-        totalweight += parseInt(countweight);
-    }
-    console.log(totalweight);
-    if (totalweight != 100) {
-        window.confirm("Warning! Weight does not equate to 100%, calculation may be off. Proceed?");
-    }
-
+function calculateFinalGrade() {
     let Finaltotal = 0;
-    for (let i = 1; i <= x; i++) {
-        let score = document.getElementById(`assessmentScore_${i}`).value;
-        let total = document.getElementById(`assessmentTotal_${i}`).value;
-        let weight = document.getElementById(`assessmentWeight_${i}`).value;
+    for (let i = 1; i <= fields; i++) {
+        let score = parseFloat(document.getElementById(`assessmentScore_${i}`).value);
+        let total = parseFloat(document.getElementById(`assessmentTotal_${i}`).value);
+        let weight = parseFloat(document.getElementById(`assessmentWeight_${i}`).value);
         Finaltotal += (score / total) * weight;
     }
+    // Clear previous results
+    const finalGradeDiv = document.getElementById("finalgrade");
+    finalGradeDiv.innerHTML = '';
+    const lostGradeDiv = document.getElementById("lostgrade");
+    lostGradeDiv.innerHTML = '';
+
     const FinalGrade = document.createElement("h2");
     FinalGrade.innerText = "Final grade: " + (Math.round(Finaltotal * 100) / 100).toFixed(2) + "%";
-    const final = document.getElementById("finalgrade");
     FinalGrade.id = "resultgrade";
-    final.appendChild(FinalGrade);
+    finalGradeDiv.appendChild(FinalGrade);
 
-    const Gradelost = document.createElement("h3")
+    const Gradelost = document.createElement("h3");
     Gradelost.innerText = "Lost grade: " + ((Math.round((100 - Finaltotal) * 100) / 100).toFixed(2)) + "%";
-    const lost = document.getElementById("lostgrade");
-    lost.appendChild(Gradelost);
-    Gradelost.id = "gradelost"
+    Gradelost.id = "gradelost";
+    lostGradeDiv.appendChild(Gradelost);
+}
 
+function submitbuttonfxn() {
+    let totalweight = 0;
+    for (let i = 1; i <= fields; i++) {
+        let countweight = parseFloat(document.getElementById(`assessmentWeight_${i}`).value);
+        totalweight += countweight;
+    }
 
+    if (Math.abs(totalweight - 100) > 1e-6) { // Use a small tolerance for floating-point comparison
+        if (window.confirm("Warning! Weight does not equate to 100%, calculation may be off. Proceed?") == true) {
+            calculateFinalGrade();
+        }
+        // If the user cancels, the button's onclick remains the same, allowing them to edit.
+    } else {
+        calculateFinalGrade();
+    }
 }
