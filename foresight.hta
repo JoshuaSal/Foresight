@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <script src="Foresight.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="media/icon.png" id="logo" alt="icon">
+            <h1 style="color:#f1f4c6;" id="title">Welcome to Foresight!</h1>
+        </a>
+    </header><br><br>
+    
+    <div>
+        <label for="Assessment_no" id="opening">How many assessments do you have?</label>
+        <input type="number" id="Assessment_no" name="Assessment_no" style="width:15%">
+        <button onclick="Assessment_declare()" id="submitbutton">
+            <img src="media/submit.png" class="darker" id="buttonimgs" alt="submitbutton">
+        </button>
+        <button onclick="Add_field()" id="fieldbutton">
+            <img src="media/field.png" class="darker" id="buttonimgs" alt="fieldbutton">
+        </button><br><br>
+    </div>
+
+    <div id="Assessment_input"></div>
+    <br><br>
+
+    <footer>
+        <div id="collectbutton"></div>
+        <div id="finalgrade"></div>
+        <div id="lostgrade"></div>
+    </footer>
+
+</body>
+
+</html>
