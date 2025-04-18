@@ -17,6 +17,21 @@ function createtable() {
 
     });
     table.appendChild(headerRow);
+    const calculateimg = document.createElement("img");
+    calculateimg.src = "media/calculate.png";
+    calculateimg.className = "darker";
+    calculateimg.id = "calculateimg";
+    calculateimg.alt = "calculateimg";
+
+    const submitbutton = document.createElement("BUTTON");
+
+    submitbutton.id = "collectbutton";
+    submitbutton.appendChild(calculateimg);
+    const parentElement = document.getElementById("collectbutton");
+    parentElement.appendChild(submitbutton);
+    submitbutton.onclick = function () {
+        submitbuttonfxn();
+    };
 }
 
 function Assessment_declare() {
@@ -47,6 +62,7 @@ function Add_field() {
     inputScore.value = "0";
     inputScore.id = `assessmentScore_${currentfields}`;
     inputScore.name = `assessmentScore_${currentfields}`;
+    inputScore.class = "centerinputs";
     scoreCell.appendChild(inputScore);
 
     row.appendChild(scoreCell);
@@ -121,21 +137,6 @@ function Assessment_set() {
         currentfields++
     }
     assessmentInputsDiv.appendChild(table);
-    const calculateimg = document.createElement("img");
-    calculateimg.src = "media/calculate.png";
-    calculateimg.className = "darker";
-    calculateimg.id = "calculateimg";
-    calculateimg.alt = "calculateimg";
-
-    const submitbutton = document.createElement("BUTTON");
-
-    submitbutton.id = "collectbutton";
-    submitbutton.appendChild(calculateimg);
-    const parentElement = document.getElementById("collectbutton");
-    parentElement.appendChild(submitbutton);
-    submitbutton.onclick = function () {
-        submitbuttonfxn();
-    };
 }
 
 function calculateFinalGrade() {
@@ -169,7 +170,6 @@ function submitbuttonfxn() {
         let countweight = parseFloat(document.getElementById(`assessmentWeight_${i}`).value);
         totalweight += countweight;
     }
-    console.log(totalweight);
 
     if (Math.abs(totalweight - 100) > 1e-6) { // Use a small tolerance for floating-point comparison
         if (window.confirm("Warning! Weight does not equate to 100%, calculation may be off. Proceed?") == true) {

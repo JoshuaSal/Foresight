@@ -1,13 +1,15 @@
 body{
     background-color:#d6d0b8;
 }
+
 header{
     display: flexbox;
     background-image: url('media/banner.png');
     background-color: #aaa6a4;
-    font-size: 45px;
-    margin: 0;
+    font-size: 200%;
+    padding-bottom: 0.1%;
 }
+
 a{
     text-decoration:none;
 }
@@ -15,6 +17,8 @@ a{
 table{
     margin-left: auto;
     margin-right: auto;
+    width:50%;
+
 }
 
 th{
@@ -23,6 +27,10 @@ th{
     border-radius: 3px;
     background-color: rgb(133, 108, 114, .6);
     font-size: 24px;
+    width: 10%;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
 
 }
 
@@ -31,32 +39,46 @@ tr{
     padding:3px;
     border-radius: 3px;
     background-color: rgb(133, 108, 114, .6);
-    font-size: 24px;
+    font-size: 150%;
+    width:10%;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
 
 }
 #logo{
-    height: 78px;
-    width:auto; 
+    max-height: 10%;
+    max-width: 10%;;
     float:left;
-    margin: 20px;
+    margin-top: 1.5%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+
+
+
 }
+
+#title{
+    margin-top: 0;
+    padding-top: 1.5%;
+}
+
 #opening{
-    font-size: 32px;
+    font-size: 190%;
     color: #f1f4c6;
-    padding:3px;
-    border-radius: 3px;
+    padding:0.3%;
+    border-radius: 15%;
     background-color: rgb(133, 108, 114, .8);
     background-image: url('media/banner.png');
 }
 
 #Assessment_input{
     background-image: url('media/banner.png');
-    margin:5px;
-    padding:10px
+    margin:0.5%;
+    padding:0.5%
 }
 
 button {
-    padding: 0;
     border: none;
     background: none;
 }
@@ -70,29 +92,28 @@ img.darker:hover {
 }
 
 #buttonimgs{
-    height:78px;
-    width:auto;
-    margin-bottom: -20px;
+    padding-top: 15%;
+    width:100px;
+    height:auto;
 }
 
 #calculateimg{
-    height:148px;
+    display: left;
     background-image: url('media/banner.png');
-    width:auto;
-    margin-top: 25px;
-    margin-bottom: -20px;
-    margin-left: 5px;
+    width:28.2%;
+    margin-top: 2.5%;
 }
 
 #resultgrade, #gradelost{
-    text-indent: 25px;
+    text-align: center;
     background-image: url('media/results.png');
-    background-size:255px;
+    background-size:110%;
+    margin:2%;
+    padding-left: 10%;
+    padding-bottom: 50%;
+    padding-top: 20%;
     background-repeat: no-repeat;
-    margin-left: 10px;
-    padding-top:62px;
-    padding-bottom: 62px;
-    padding-right:75px;
+    font-size: 120%;
     color:rgb(133, 108, 114);
     text-shadow: -1px -1px 0 #f1f4c6, 1px -1px 0 #f1f4c6, -1px 1px 0 #f1f4c6, 1px 1px 0 #f1f4c6;
 }
@@ -102,7 +123,9 @@ footer{
 }
 
 input{
-    font-size: 24px;
+    font-size: 120%;
     text-align: center;
-    background-color:#d6d0b8
+    background-color:#d6d0b8;
+    width:45%;
 }
+
